@@ -59,6 +59,7 @@ class EasyLoaderImage extends HTMLElement {
 		const observer = new IntersectionObserver(observerCallback, {
 			rootMargin: '10px'
 		})
+
 		observer.observe(imgElement)
 		if (imageSrc != undefined && imageSrc != null && imageSrc.trim() != '') {
 			imgElement.src = imageSrc.trim()
@@ -72,4 +73,5 @@ class EasyLoaderImage extends HTMLElement {
 		}
 	}
 }
-window.customElements.define('easy-img', EasyLoaderImage);
+
+window.addEventListener('load', () => window.customElements.define('easy-img', EasyLoaderImage))

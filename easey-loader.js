@@ -52,6 +52,16 @@ class EasyLoaderImage extends HTMLElement {
 					entrie.target.src = imageSrc;
 					getAnimate(entrie.target);
 					observer.disconnect();
+					if (imageSrc != undefined && imageSrc != null && imageSrc.trim() != '') {
+						imgElement.src = imageSrc.trim()
+						if (imageAlt != undefined && imageAlt != null && imageAlt.trim() != '') {
+							imgElement.alt = imageAlt
+						} else {
+							imgElement.alt = 'Easy Loader Error'
+						}
+					} else {
+						imgElement.alt = 'Easy Loader Error'
+					}
 				}
 			})
 		}
@@ -61,16 +71,6 @@ class EasyLoaderImage extends HTMLElement {
 		})
 
 		observer.observe(imgElement)
-		if (imageSrc != undefined && imageSrc != null && imageSrc.trim() != '') {
-			imgElement.src = imageSrc.trim()
-			if (imageAlt != undefined && imageAlt != null && imageAlt.trim() != '') {
-				imgElement.alt = imageAlt
-			} else {
-				imgElement.alt = 'Easy Loader Error'
-			}
-		} else {
-			imgElement.alt = 'Easy Loader Error'
-		}
 	}
 }
 

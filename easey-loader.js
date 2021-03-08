@@ -1,7 +1,16 @@
 class EasyLoaderImage extends HTMLElement {
   constructor() {
     super();
-    this.template = `<img alt="test" src=""/>`;
+    this.template = `
+    <img alt="" src=""/>
+    <style>
+      img{
+        display: block;
+        padding: 0!important;
+        margin: 0!important;
+        height: auto!important;
+      }
+    </style>`;
     this.attachShadow({
       mode: "open",
     });
@@ -62,7 +71,6 @@ class EasyLoaderImage extends HTMLElement {
           getAnimate(entrie.target);
           observer.disconnect();
           imgElement.style.width = imageWidth;
-          console.log(imageWidth);
           if (
             imageSrc != undefined &&
             imageSrc != null &&
